@@ -1,24 +1,19 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import {
-  ArrowDownRight,
   ArrowRight,
   ArrowUp,
   ArrowUpRight,
-  Bot,
-  Check,
-  ExternalLink,
+  Code2,
   Eye,
   Globe2,
-  Linkedin,
   Mail,
   Menu,
-  MessageCircle,
   Phone,
-  Sparkles,
+  ShoppingBag,
   Target,
-  Workflow,
   X,
+  Zap,
 } from 'lucide-react';
 import { teamMembers, TeamMember } from './teamData';
 import './styles.css';
@@ -26,132 +21,61 @@ import './styles.css';
 const services = [
   {
     icon: Globe2,
-    number: '01',
-    title: 'Websites & E-commerce',
-    body: 'Distinctive, high-performance web applications and online storefronts designed to convert visits into lasting business relationships.',
+    title: 'Website Development',
+    description: 'Fast, responsive websites built to showcase your brand and engage visitors.',
   },
   {
-    icon: MessageCircle,
-    number: '02',
-    title: 'WhatsApp Commerce',
-    body: 'Friction-light conversational journeys bringing product discovery, catalog browsing, and booking closer to everyday chat.',
+    icon: ShoppingBag,
+    title: 'E-commerce Solutions',
+    description: 'Modern online storefronts and smooth checkout experiences that drive sales.',
   },
   {
-    icon: Workflow,
-    number: '03',
-    title: 'Digital Identity & Automation',
-    body: 'Domain architecture, secure business communications, and automated operational workflows that bring clarity to daily tasks.',
+    icon: Code2,
+    title: 'Custom Software',
+    description: 'Tailored web applications and internal tools designed around your workflows.',
   },
   {
-    icon: Bot,
-    number: '04',
-    title: 'Custom Digital Solutions',
-    body: 'Purpose-built web software, booking systems, and internal tools engineered around the exact way your company operates.',
+    icon: Zap,
+    title: 'Digital Automation',
+    description: 'Smart integrations and automated processes that simplify daily operations.',
   },
 ];
 
 const navigationLinks = [
-  { number: '01', label: 'Home', href: '#home', tag: 'Top of page' },
-  { number: '02', label: 'What We Do', href: '#services', tag: 'Our capabilities' },
-  { number: '03', label: 'Selected Work', href: '#work', tag: 'Gokul Traders' },
-  { number: '04', label: 'About NJEX', href: '#about', tag: 'Studio philosophy' },
-  { number: '05', label: 'Mission & Vision', href: '#mission-vision', tag: 'Purpose & horizon' },
-  { number: '06', label: 'Our Team', href: '#team', tag: 'The minds behind' },
-  { number: '07', label: 'Contact', href: '#contact', tag: 'Initiate project' },
+  { label: 'Home', href: '#home' },
+  { label: 'Services', href: '#services' },
+  { label: 'Work', href: '#work' },
+  { label: 'About', href: '#about' },
+  { label: 'Mission & Vision', href: '#mission-vision' },
+  { label: 'Team', href: '#team' },
+  { label: 'Contact', href: '#contact' },
 ];
 
-const footerServices = [
-  'Website Development',
-  'E-commerce Solutions',
-  'WhatsApp Checkout',
-  'Digital Identity',
-  'Workflow Automation',
-  'Custom Software Solutions',
-];
-
-function TeamCard({ member, index }: { member: TeamMember; index: number }) {
+function TeamCard({ member }: { member: TeamMember }) {
   const [imgError, setImgError] = React.useState(false);
-  const showPhoto = Boolean(member.photoUrl && !imgError);
 
   return (
     <article className="team-card" id={member.id}>
       <div className="team-avatar-box">
-        {showPhoto ? (
+        {!imgError ? (
           <img
             src={member.photoUrl}
-            alt={member.name}
+            alt={member.role}
             className="team-photo"
             loading="lazy"
             decoding="async"
             onError={() => setImgError(true)}
           />
         ) : (
-          <div className="team-avatar-placeholder" aria-label={`Avatar placeholder for ${member.name}`}>
-            <div className="avatar-ambient-glow" aria-hidden="true" />
-            <div className="avatar-orbit" aria-hidden="true" />
-            <div className="avatar-frame">
-              <span className="avatar-number">{member.avatarPlaceholder.initials}</span>
-              <span className="avatar-brand-tag">NJEX</span>
-            </div>
-            <div className="avatar-badge">{member.avatarPlaceholder.badgeText}</div>
+          <div className="team-avatar-fallback">
+            <span>NJEX</span>
           </div>
         )}
-        <div className="team-index">MEMBER / {String(index + 1).padStart(2, '0')}</div>
       </div>
 
       <div className="team-content">
-        <div className="team-header">
-          <h3 className="team-name">{member.name}</h3>
-          <p className="team-designation">{member.designation}</p>
-        </div>
-
-        <div className="team-responsibility">
-          <span className="resp-label">Area of Responsibility</span>
-          <span className="resp-value">{member.responsibility}</span>
-        </div>
-
-        <p className="team-bio">{member.bio}</p>
-
-        {member.socialLinks && (
-          <div className="team-links">
-            {member.socialLinks.linkedin && (
-              <a
-                href={member.socialLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="team-link"
-                aria-label={`${member.name} on LinkedIn`}
-              >
-                <Linkedin size={14} aria-hidden="true" />
-                <span>LinkedIn</span>
-                <ArrowUpRight size={12} aria-hidden="true" />
-              </a>
-            )}
-            {member.socialLinks.portfolio && (
-              <a
-                href={member.socialLinks.portfolio}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="team-link"
-                aria-label={`${member.name} Portfolio`}
-              >
-                <ExternalLink size={14} aria-hidden="true" />
-                <span>Portfolio</span>
-                <ArrowUpRight size={12} aria-hidden="true" />
-              </a>
-            )}
-            {member.socialLinks.email && (
-              <a
-                href={member.socialLinks.email}
-                className="team-link"
-                aria-label={`Email ${member.name}`}
-              >
-                <Mail size={14} aria-hidden="true" />
-                <span>Email</span>
-              </a>
-            )}
-          </div>
-        )}
+        <h3 className="team-role">{member.role}</h3>
+        <p className="team-area">{member.area}</p>
       </div>
     </article>
   );
@@ -162,35 +86,31 @@ function App() {
   const [form, setForm] = React.useState({
     name: '',
     email: '',
-    service: 'Website or e-commerce',
+    service: 'Website Development',
     message: '',
   });
   const [sent, setSent] = React.useState(false);
 
-  const closeMenu = () => setMenuOpen(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const closeMenu = () => setMenuOpen(false);
 
-  // Keyboard accessibility and body scroll locking
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && menuOpen) {
-        setMenuOpen(false);
-      }
+      if (e.key === 'Escape') setMenuOpen(false);
     };
+
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
       document.body.classList.add('nav-overlay-active');
     } else {
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
       document.body.classList.remove('nav-overlay-active');
     }
+
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
       document.body.classList.remove('nav-overlay-active');
     };
   }, [menuOpen]);
@@ -206,13 +126,11 @@ function App() {
     const cleanEmail = form.email.trim();
     const cleanMessage = form.message.trim();
 
-    if (!cleanName || !cleanEmail || !cleanMessage) {
-      return;
-    }
+    if (!cleanName || !cleanEmail || !cleanMessage) return;
 
-    const subject = encodeURIComponent(`NJEX project enquiry — ${form.service}`);
+    const subject = encodeURIComponent(`NJEX Enquiry — ${form.service}`);
     const body = encodeURIComponent(
-      `Name: ${cleanName}\nEmail: ${cleanEmail}\nInterested in: ${form.service}\n\nProject details:\n${cleanMessage}`
+      `Name: ${cleanName}\nEmail: ${cleanEmail}\nService: ${form.service}\n\nProject details:\n${cleanMessage}`
     );
     window.location.href = `mailto:njtech.in@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
@@ -222,780 +140,359 @@ function App() {
 
   return (
     <div className="site-shell">
-      <div className="grain" aria-hidden="true" />
-
-      {/* ==================== IMMERSIVE CORNER CONTROLS (NO HORIZONTAL BAR) ==================== */}
-      <div className="immersive-nav-bar">
-        {/* Top-Left Compact Logo / Monogram */}
-        <a className="corner-brand" href="#home" onClick={closeMenu} aria-label="NJEX studio home">
-          <span className="corner-brand-mark">NJ</span>
-          <span className="corner-brand-info">
+      {/* ==================== COMPACT FLOATING NAVIGATION ==================== */}
+      <header className="floating-nav-bar" aria-label="Site header">
+        <a className="brand-logo-link" href="#home" onClick={closeMenu} aria-label="NJEX home">
+          <span className="brand-mark">NJ</span>
+          <span className="brand-text">
             <strong>NJEX</strong>
-            <small className="corner-brand-sub">SOFTWARE & DIGITAL SOLUTIONS</small>
+            <small>DIGITAL SOLUTIONS</small>
           </span>
         </a>
 
-        {/* Top-Right Minimal Menu Icon */}
         <button
-          className="corner-menu-trigger"
+          className="menu-toggle-btn"
           onClick={toggleMenu}
-          aria-label={menuOpen ? 'Close navigation overlay' : 'Open navigation overlay'}
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={menuOpen}
-          aria-controls="fullscreen-navigation"
+          aria-controls="nav-overlay"
         >
-          <span className="menu-trigger-text">{menuOpen ? 'CLOSE' : 'MENU'}</span>
-          <span className="menu-trigger-icon-box">
-            {menuOpen ? <X size={17} aria-hidden="true" /> : <Menu size={17} aria-hidden="true" />}
+          <span className="menu-btn-text">{menuOpen ? 'CLOSE' : 'MENU'}</span>
+          <span className="menu-btn-icon">
+            {menuOpen ? <X size={16} aria-hidden="true" /> : <Menu size={16} aria-hidden="true" />}
           </span>
         </button>
-      </div>
+      </header>
 
       {/* ==================== FULL-SCREEN NAVIGATION OVERLAY ==================== */}
       <div
-        id="fullscreen-navigation"
-        className={`fullscreen-overlay ${menuOpen ? 'overlay-active' : ''}`}
+        id="nav-overlay"
+        className={`nav-overlay ${menuOpen ? 'is-active' : ''}`}
         aria-hidden={!menuOpen}
       >
-        <div className="overlay-ambient-glow" aria-hidden="true" />
-        <div className="overlay-container">
-          <div className="overlay-top-strip">
-            <span className="overlay-edition">NJEX DIGITAL STUDIO // NAVIGATION</span>
-            <span className="overlay-status-pill">
-              <span className="status-dot-pulse" aria-hidden="true" /> ACCEPTING CLIENT PROJECTS
-            </span>
-          </div>
+        <div className="nav-overlay-content">
+          <nav className="overlay-menu-list" aria-label="Main menu">
+            {navigationLinks.map((item, index) => (
+              <a
+                className="overlay-menu-link"
+                href={item.href}
+                key={item.href}
+                onClick={closeMenu}
+              >
+                <span className="menu-num">0{index + 1}</span>
+                <span className="menu-label">{item.label}</span>
+              </a>
+            ))}
+          </nav>
 
-          <div className="overlay-body">
-            {/* Primary Editorial Navigation Links */}
-            <nav className="overlay-nav-links" aria-label="Overlay Navigation">
-              {navigationLinks.map((link) => (
-                <a
-                  key={link.number}
-                  href={link.href}
-                  className="overlay-nav-item"
-                  onClick={closeMenu}
-                >
-                  <span className="nav-item-num">{link.number}</span>
-                  <span className="nav-item-title">{link.label}</span>
-                  <span className="nav-item-tag">{link.tag}</span>
-                  <ArrowUpRight className="nav-item-arrow" size={24} aria-hidden="true" />
-                </a>
-              ))}
-            </nav>
-
-            {/* Studio Context & Direct Inquiries */}
-            <div className="overlay-sidebar">
-              <div className="overlay-sidebar-block">
-                <span className="sidebar-label">THE STUDIO</span>
-                <p className="sidebar-description">
-                  NJEX designs, architects, and builds bespoke software, conversion-focused web applications, and thoughtful digital commerce systems for ambitious businesses.
-                </p>
-              </div>
-
-              <div className="overlay-sidebar-block">
-                <span className="sidebar-label">DIRECT CONTACT</span>
-                <a className="sidebar-link" href="mailto:njtech.in@gmail.com">
-                  <Mail size={15} aria-hidden="true" />
-                  <span>njtech.in@gmail.com</span>
-                </a>
-                <a className="sidebar-link" href="tel:+918610870325">
-                  <Phone size={15} aria-hidden="true" />
-                  <span>+91 86108 70325</span>
-                </a>
-              </div>
-
-              <div className="overlay-sidebar-cta">
-                <a className="button button-gold overlay-cta-btn" href="#contact" onClick={closeMenu}>
-                  Start a Project <ArrowRight size={15} aria-hidden="true" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="overlay-bottom-bar">
-            <span>© {currentYear} NJEX</span>
-            <span>STRATEGY · DESIGN · DEVELOPMENT</span>
-            <span>PRESS ESC TO CLOSE</span>
+          <div className="overlay-footer-contact">
+            <a className="overlay-contact-item" href="mailto:njtech.in@gmail.com">
+              <Mail size={15} aria-hidden="true" />
+              <span>njtech.in@gmail.com</span>
+            </a>
+            <a className="overlay-contact-item" href="tel:+918610870325">
+              <Phone size={15} aria-hidden="true" />
+              <span>+91 86108 70325</span>
+            </a>
           </div>
         </div>
       </div>
 
       <main>
-        {/* ==================== CINEMATIC FULL-SCREEN HERO ==================== */}
-        <section className="hero-fullscreen" id="home">
-          <div className="hero-top-ambient" aria-hidden="true" />
-          <div className="section-wrap hero-content-grid">
-            <div className="hero-editorial">
-              <div className="hero-kicker">
-                <span className="hero-kicker-dot" aria-hidden="true" />
-                <span className="hero-kicker-text">SOFTWARE · DESIGN · DIGITAL SOLUTIONS</span>
-                <span className="hero-kicker-line" aria-hidden="true" />
-              </div>
-
-              <h1 className="hero-headline">
-                We turn ideas into<br className="hero-br-desk" />
-                <em>digital experiences.</em>
-              </h1>
-
-              <p className="hero-summary">
-                From powerful websites to thoughtful software solutions, NJEX helps businesses build, grow, and move forward with technology.
-              </p>
-
-              <div className="hero-actions-wrap">
-                <a className="button button-gold hero-btn-primary" href="#work">
-                  Explore Our Work <ArrowRight size={16} aria-hidden="true" />
-                </a>
-                <a className="button button-outline hero-btn-secondary" href="#contact">
-                  Start a Project <ArrowUpRight size={16} aria-hidden="true" />
-                </a>
-              </div>
-
-              <div className="hero-specs-row">
-                <div className="spec-item">
-                  <span className="spec-dot" aria-hidden="true" />
-                  <strong>STRATEGY</strong>
-                  <small>Web & Commerce</small>
-                </div>
-                <div className="spec-item">
-                  <span className="spec-dot" aria-hidden="true" />
-                  <strong>CRAFT</strong>
-                  <small>Editorial Systems</small>
-                </div>
-                <div className="spec-item">
-                  <span className="spec-dot" aria-hidden="true" />
-                  <strong>ENGINEERING</strong>
-                  <small>Custom Software</small>
-                </div>
-              </div>
+        {/* ==================== 1. HERO SECTION ==================== */}
+        <section className="hero-section" id="home">
+          <div className="section-wrap hero-inner">
+            <div className="hero-eyebrow">
+              <span className="eyebrow-dot" aria-hidden="true" />
+              <span>SOFTWARE · DESIGN · DIGITAL SOLUTIONS</span>
             </div>
 
-            {/* NJEX Studio Focus & Disciplines Overview Panel */}
-            <div className="hero-overview-panel" aria-label="NJEX studio overview and core disciplines">
-              <div className="overview-panel-glass">
-                <div className="overview-panel-top">
-                  <div className="overview-status-indicator">
-                    <span className="pulse-dot" aria-hidden="true" />
-                    <span className="status-label">STUDIO DISCIPLINES</span>
-                  </div>
-                  <span className="overview-edition-tag">DIRECTORY // 2026</span>
-                </div>
+            <h1 className="hero-title">
+              We Build Digital Experiences.
+            </h1>
 
-                <div className="overview-disciplines-list">
-                  <div className="discipline-item">
-                    <div className="discipline-meta">
-                      <span className="discipline-num">01</span>
-                      <span className="discipline-tag">WEB APPLICATIONS</span>
-                    </div>
-                    <h4 className="discipline-title">Modern Web & Platforms</h4>
-                    <p className="discipline-desc">Responsive storefronts and digital platforms engineered for conversion.</p>
-                  </div>
+            <p className="hero-subtitle">
+              Websites, software, and digital solutions that move your business forward.
+            </p>
 
-                  <div className="discipline-item">
-                    <div className="discipline-meta">
-                      <span className="discipline-num">02</span>
-                      <span className="discipline-tag">COMMERCE</span>
-                    </div>
-                    <h4 className="discipline-title">E-Commerce & WhatsApp Ordering</h4>
-                    <p className="discipline-desc">Frictionless product catalogs, booking forms, and direct messaging channels.</p>
-                  </div>
-
-                  <div className="discipline-item">
-                    <div className="discipline-meta">
-                      <span className="discipline-num">03</span>
-                      <span className="discipline-tag">BRAND IDENTITY</span>
-                    </div>
-                    <h4 className="discipline-title">Digital Identity & Systems</h4>
-                    <p className="discipline-desc">Cohesive design systems, refined typography, and purposeful user journeys.</p>
-                  </div>
-
-                  <div className="discipline-item">
-                    <div className="discipline-meta">
-                      <span className="discipline-num">04</span>
-                      <span className="discipline-tag">SOFTWARE</span>
-                    </div>
-                    <h4 className="discipline-title">Custom Software Solutions</h4>
-                    <p className="discipline-desc">Bespoke operational tools, portals, and data architectures built to scale.</p>
-                  </div>
-                </div>
-
-                <div className="overview-panel-bottom">
-                  <div className="overview-bottom-meta">
-                    <span className="bottom-meta-label">FEATURED DEPLOYMENT</span>
-                    <span className="bottom-meta-val">Gokul Traders // Online Platform</span>
-                  </div>
-                  <a href="#work" className="panel-explore-link">
-                    <span>View Project</span>
-                    <ArrowRight size={14} aria-hidden="true" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Cinematic Bottom Hero Ribbon */}
-          <div className="hero-bottom-ribbon">
-            <div className="section-wrap ribbon-inner">
-              <div className="ribbon-col">
-                <span className="ribbon-dim">FEATURED CASE STUDY</span>
-                <strong className="ribbon-bold">GOKUL TRADERS // ECOMMERCE BOOKING</strong>
-              </div>
-              <div className="ribbon-col ribbon-center">
-                <span className="ribbon-dim">CORE DISCIPLINES</span>
-                <span className="ribbon-bold">WEB · SOFTWARE · COMMERCE</span>
-              </div>
-              <a className="ribbon-col ribbon-right" href="#work">
-                <span>EXPLORE WORK</span>
-                <ArrowDownRight size={14} aria-hidden="true" />
+            <div className="hero-cta-group">
+              <a className="btn btn-gold" href="#work">
+                View Our Work <ArrowRight size={16} aria-hidden="true" />
+              </a>
+              <a className="btn btn-outline" href="#contact">
+                Contact Us <ArrowUpRight size={16} aria-hidden="true" />
               </a>
             </div>
           </div>
         </section>
 
-        {/* ==================== WHAT WE DO / SERVICES SECTION ==================== */}
+        {/* ==================== 2. SERVICES SECTION ==================== */}
         <section className="services-section section-pad" id="services">
           <div className="section-wrap">
-            <div className="section-header-editorial">
-              <div className="header-eyebrow-box">
-                <span className="section-num">02 // WHAT WE DO</span>
-                <p className="eyebrow">OUR CORE SERVICES</p>
-              </div>
-              <div className="header-title-split">
-                <h2>Built around your<br /><em>next big move.</em></h2>
-                <p className="heading-summary">
-                  Clear thinking. Careful execution.<br />
-                  Digital tools tailored to how your business creates revenue.
-                </p>
-              </div>
+            <div className="section-header">
+              <span className="section-eyebrow">SERVICES</span>
+              <h2 className="section-title">What We Do</h2>
             </div>
 
-            <div className="services-editorial-grid">
-              {services.map(({ icon: Icon, number, title, body }) => (
-                <article className="service-editorial-card" key={number}>
-                  <div className="service-card-top">
-                    <span className="service-card-num">{number}</span>
-                    <Icon size={24} strokeWidth={1.3} className="service-card-icon" aria-hidden="true" />
+            <div className="services-grid">
+              {services.map(({ icon: Icon, title, description }) => (
+                <article className="service-card" key={title}>
+                  <div className="service-icon-box" aria-hidden="true">
+                    <Icon size={22} strokeWidth={1.4} />
                   </div>
                   <h3 className="service-card-title">{title}</h3>
-                  <p className="service-card-body">{body}</p>
-                  <div className="service-card-footer">
-                    <a href="#contact" className="service-card-anchor" aria-label={`Enquire about ${title}`}>
-                      <span>Initiate project</span>
-                      <ArrowUpRight size={16} aria-hidden="true" />
-                    </a>
-                  </div>
+                  <p className="service-card-desc">{description}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ==================== PROMINENT CASE STUDY: GOKUL TRADERS ==================== */}
-        <section className="work-section section-pad" id="work">
+        {/* ==================== 3. FEATURED PROJECT ==================== */}
+        <section className="project-section section-pad" id="work">
           <div className="section-wrap">
-            <div className="section-header-editorial">
-              <div className="header-eyebrow-box">
-                <span className="section-num">03 // SELECTED WORK</span>
-                <p className="eyebrow">VERIFIED PROJECT CASE STUDY</p>
-              </div>
-              <div className="header-title-split">
-                <h2>Ideas made<br /><em>real.</em></h2>
-                <p className="heading-summary">
-                  Every project starts with an operational need.<br />
-                  We engineer around the people who interact with it every day.
-                </p>
-              </div>
+            <div className="section-header">
+              <span className="section-eyebrow">FEATURED PROJECT</span>
+              <h2 className="section-title">Gokul Traders</h2>
             </div>
 
-            {/* Gokul Traders Feature Case Study */}
-            <article className="featured-case-study">
-              <div className="case-study-visual">
-                <div className="case-study-window" aria-hidden="true">
-                  <div className="window-bar">
-                    <span className="dot dot-red" />
-                    <span className="dot dot-yellow" />
-                    <span className="dot dot-green" />
-                    <span className="window-url">https://gokul-traders.in</span>
-                  </div>
-                  <div className="festive-sky">
-                    <div className="festive-glow" />
-                    <div className="spark spark-1">✳</div>
-                    <div className="spark spark-2">✦</div>
-                    <div className="spark spark-3">✧</div>
-                    <div className="window-mock-card">
-                      <small className="mock-tag">FESTIVE CRACKERS BOOKING PLATFORM</small>
-                      <strong className="mock-title">
-                        Make this<br />
-                        season shine.
-                      </strong>
-                      <span className="mock-btn">EXPLORE PRODUCT SELECTIONS ↗</span>
-                    </div>
-                  </div>
+            <article className="project-card">
+              <div className="project-preview-window">
+                <div className="browser-header-bar" aria-hidden="true">
+                  <span className="dot dot-red" />
+                  <span className="dot dot-yellow" />
+                  <span className="dot dot-green" />
+                  <span className="browser-url">https://gokul-traders.in</span>
                 </div>
-                <div className="visual-caption-tag" aria-hidden="true">
-                  <span>PROJECT / 001</span>
-                  <span>ONLINE COMMERCE ENGINE</span>
+                <div className="browser-mock-body">
+                  <div className="mock-badge">FESTIVE BOOKING PLATFORM</div>
+                  <h3 className="mock-headline">
+                    Make this season shine.
+                  </h3>
+                  <span className="mock-cta">EXPLORE PRODUCT SELECTIONS ↗</span>
                 </div>
               </div>
 
-              <div className="case-study-dossier">
-                <div className="dossier-meta-tags">
-                  <span className="meta-pill">CLIENT CASE STUDY</span>
-                  <span className="meta-pill">CRACKER BOOKING APPLICATION</span>
-                  <span className="meta-pill">RESPONSIVE WEB</span>
+              <div className="project-info">
+                <div className="project-tags">
+                  <span className="tag">E-Commerce</span>
+                  <span className="tag">Web Platform</span>
                 </div>
 
-                <h3 className="dossier-title">Gokul Traders</h3>
-                <p className="dossier-lead">
-                  An online crackers booking website application designed to help customers explore curated festive products, review catalog pricing, and place booking reservations online.
+                <h3 className="project-title">Gokul Traders</h3>
+                <p className="project-desc">
+                  A digital platform for browsing and booking crackers online.
                 </p>
 
-                <div className="dossier-features-grid">
-                  <div className="dossier-feature-card">
-                    <span className="feature-num">01</span>
-                    <strong>Online Booking Flow</strong>
-                    <p>Enables direct booking requests online through structured forms and order summarization.</p>
-                  </div>
-                  <div className="dossier-feature-card">
-                    <span className="feature-num">02</span>
-                    <strong>Festive Product Discovery</strong>
-                    <p>Organized catalog categorization and visual presentation tailored to seasonal shopping surges.</p>
-                  </div>
-                  <div className="dossier-feature-card">
-                    <span className="feature-num">03</span>
-                    <strong>Cross-Device Responsive Web</strong>
-                    <p>Engineered for swift, accessible browsing on both mobile smartphones and desktop computers.</p>
-                  </div>
-                </div>
-
-                <div className="dossier-actions">
+                <div className="project-actions">
                   <a
-                    className="button button-gold live-site-btn"
+                    className="btn btn-gold"
                     href="https://gokul-traders.in/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Visit Live Website <ArrowUpRight size={17} aria-hidden="true" />
+                    View Project <ArrowUpRight size={16} aria-hidden="true" />
                   </a>
-                  <span className="live-site-url">https://gokul-traders.in/</span>
+                  <span className="project-live-url">https://gokul-traders.in/</span>
                 </div>
-
-                <p className="project-disclaimer">
-                  Verified project overview based on the live deployment at gokul-traders.in. Features listed reflect verified functionality.
-                </p>
               </div>
             </article>
-
-            <div className="case-study-footer">
-              <span>ONE PURPOSEFUL PROJECT AT A TIME.</span>
-              <a href="#contact" className="case-footer-link">
-                Discuss your next project <ArrowRight size={14} aria-hidden="true" />
-              </a>
-            </div>
           </div>
         </section>
 
-        {/* ==================== EDITORIAL INTRO MANIFESTO ==================== */}
-        <section className="manifesto-band">
-          <div className="section-wrap manifesto-layout">
-            <div className="manifesto-aside">
-              <span className="section-num">PERSPECTIVE // ESSENCE</span>
-              <p className="aside-title">THE DIGITAL PARADOX</p>
-            </div>
-            <div className="manifesto-main">
-              <h2>
-                Good technology should do more than work.<br />
-                <em>It should advance your business forward.</em>
-              </h2>
-              <p className="manifesto-lead">
-                Too much software is built generic, bloated, and disconnected from genuine customer needs. NJEX builds with restraint: thoughtful design systems, resilient codebases, and digital experiences that honor your brand’s reputation.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ==================== ABOUT SECTION ==================== */}
+        {/* ==================== 4. ABOUT NJEX ==================== */}
         <section className="about-section section-pad" id="about">
-          <div className="section-wrap about-grid-layout">
-            <div className="about-monolith">
-              <div className="about-frame">
-                <div className="about-frame-inner">
-                  <span className="monogram-letter letter-1">N</span>
-                  <span className="monogram-letter letter-2">J</span>
-                </div>
-                <div className="frame-cross cross-h" aria-hidden="true" />
-                <div className="frame-cross cross-v" aria-hidden="true" />
-              </div>
-              <div className="about-tag">DESIGNED WITH PURPOSE</div>
-            </div>
-
-            <div className="about-narrative">
-              <div className="header-eyebrow-box">
-                <span className="section-num">04 // PHILOSOPHY</span>
-                <p className="eyebrow">THE NJEX APPROACH</p>
-              </div>
-
-              <h2>Small details.<br /><em>Enduring value.</em></h2>
-
-              <p className="about-body-lead">
-                We believe the best digital solutions balance how an application looks with how reliably it executes behind the scenes.
-              </p>
-              <p className="about-body-text">
-                Our approach is deeply collaborative, direct, and unencumbered by unnecessary layers. We eliminate guesswork by building modular foundations that allow your brand to scale with confidence.
-              </p>
-
-              <div className="about-tenets-list">
-                <div className="tenet-item">
-                  <div className="tenet-icon-wrap">
-                    <Check size={16} aria-hidden="true" />
-                  </div>
-                  <div className="tenet-copy">
-                    <strong>Purpose First</strong>
-                    <p>Start with the actual operational problem before writing a single line of code.</p>
-                  </div>
-                </div>
-
-                <div className="tenet-item">
-                  <div className="tenet-icon-wrap">
-                    <Check size={16} aria-hidden="true" />
-                  </div>
-                  <div className="tenet-copy">
-                    <strong>Refined Craftsmanship</strong>
-                    <p>Every interface hierarchy, button state, and database touchpoint must feel intentional.</p>
-                  </div>
-                </div>
-
-                <div className="tenet-item">
-                  <div className="tenet-icon-wrap">
-                    <Check size={16} aria-hidden="true" />
-                  </div>
-                  <div className="tenet-copy">
-                    <strong>Engineered to Evolve</strong>
-                    <p>Clean architecture that stands up to production demands and leaves room for tomorrow.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ==================== MISSION & VISION SECTION ==================== */}
-        <section className="mission-vision-section section-pad" id="mission-vision">
           <div className="section-wrap">
-            <div className="section-header-editorial">
-              <div className="header-eyebrow-box">
-                <span className="section-num">05 // PURPOSE & HORIZON</span>
-                <p className="eyebrow">GUIDING PRINCIPLES</p>
-              </div>
-              <div className="header-title-split">
-                <h2>Where we stand.<br /><em>Where we are heading.</em></h2>
-                <p className="heading-summary">
-                  Clear intention behind today's execution.<br />
-                  A steadfast commitment to tomorrow's digital landscape.
-                </p>
-              </div>
+            <div className="about-container">
+              <span className="section-eyebrow">ABOUT NJEX</span>
+              <h2 className="about-statement">
+                NJEX helps businesses turn ideas into practical digital solutions through thoughtful design and technology.
+              </h2>
+            </div>
+          </div>
+        </section>
+
+        {/* ==================== 5. MISSION & VISION ==================== */}
+        <section className="mv-section section-pad" id="mission-vision">
+          <div className="section-wrap">
+            <div className="section-header">
+              <span className="section-eyebrow">PURPOSE & DIRECTION</span>
+              <h2 className="section-title">Mission & Vision</h2>
             </div>
 
-            <div className="mission-vision-grid">
-              {/* Mission Card */}
-              <article className="mv-card mv-card-mission">
-                <div className="mv-card-ambient" aria-hidden="true" />
-                <div className="mv-card-top">
-                  <div className="mv-icon-box" aria-label="Mission Target Icon">
-                    <Target size={24} strokeWidth={1.4} aria-hidden="true" />
-                  </div>
-                  <div className="mv-badge">
-                    <span className="mv-dot" aria-hidden="true" />
-                    <span>FOUNDATIONAL CALLING</span>
-                  </div>
+            <div className="mv-grid">
+              <article className="mv-card">
+                <div className="mv-icon-box" aria-hidden="true">
+                  <Target size={22} strokeWidth={1.4} />
                 </div>
-
-                <div className="mv-card-content">
-                  <span className="mv-subtitle">01 / COMMITMENT</span>
-                  <h3 className="mv-heading">Our Mission</h3>
-                  <p className="mv-text">
-                    Our mission is to transform ideas into meaningful digital solutions by combining creativity, technology, and practical problem-solving. We aim to help businesses build a stronger digital presence, improve their operations, and turn their goals into real-world results through reliable, user-focused software and digital experiences.
-                  </p>
-                </div>
-
-                <div className="mv-card-footer">
-                  <span className="mv-footer-tag">EXECUTION WITH INTENTION</span>
-                  <span className="mv-footer-num">01</span>
-                </div>
+                <h3 className="mv-title">Our Mission</h3>
+                <p className="mv-text">
+                  To turn ideas into useful, user-focused digital solutions.
+                </p>
               </article>
 
-              {/* Central Visual Connector (Purpose to Direction) */}
-              <div className="mv-connector-bridge" aria-hidden="true">
-                <div className="mv-connector-line" />
-                <div className="mv-connector-node">
-                  <span className="mv-node-dot" />
-                  <span className="mv-node-text">ALIGNMENT</span>
+              <article className="mv-card">
+                <div className="mv-icon-box" aria-hidden="true">
+                  <Eye size={22} strokeWidth={1.4} />
                 </div>
-                <div className="mv-connector-line" />
-              </div>
-
-              {/* Vision Card */}
-              <article className="mv-card mv-card-vision">
-                <div className="mv-card-ambient" aria-hidden="true" />
-                <div className="mv-card-top">
-                  <div className="mv-icon-box" aria-label="Vision Eye Icon">
-                    <Eye size={24} strokeWidth={1.4} aria-hidden="true" />
-                  </div>
-                  <div className="mv-badge">
-                    <span className="mv-dot" aria-hidden="true" />
-                    <span>LONG-TERM HORIZON</span>
-                  </div>
-                </div>
-
-                <div className="mv-card-content">
-                  <span className="mv-subtitle">02 / ASPIRATION</span>
-                  <h3 className="mv-heading">Our Vision</h3>
-                  <p className="mv-text">
-                    Our vision is to become a trusted technology partner for businesses of all sizes, creating innovative digital experiences that simplify everyday challenges and open new opportunities for growth. We aspire to build technology that is accessible, impactful, and ready for the future.
-                  </p>
-                </div>
-
-                <div className="mv-card-footer">
-                  <span className="mv-footer-tag">READY FOR THE FUTURE</span>
-                  <span className="mv-footer-num">02</span>
-                </div>
+                <h3 className="mv-title">Our Vision</h3>
+                <p className="mv-text">
+                  To become a trusted technology partner for businesses building a better digital future.
+                </p>
               </article>
             </div>
           </div>
         </section>
 
-        {/* ==================== TEAM SECTION ==================== */}
+        {/* ==================== 6. TEAM ==================== */}
         <section className="team-section section-pad" id="team">
           <div className="section-wrap">
-            <div className="section-header-editorial">
-              <div className="header-eyebrow-box">
-                <span className="section-num">06 // OUR TEAM</span>
-                <p className="eyebrow">THE PEOPLE BEHIND NJEX</p>
-              </div>
-              <div className="header-title-split">
-                <h2>Good work is a<br /><em>team effort.</em></h2>
-                <p className="heading-summary">
-                  Multidisciplinary specialists collaborating<br />
-                  to craft dependable digital solutions.
-                </p>
-              </div>
+            <div className="section-header">
+              <span className="section-eyebrow">OUR TEAM</span>
+              <h2 className="section-title">The People Behind NJEX</h2>
             </div>
 
             <div className="team-grid">
-              {teamMembers.map((member, index) => (
-                <TeamCard key={member.id} member={member} index={index} />
+              {teamMembers.map((member) => (
+                <TeamCard key={member.id} member={member} />
               ))}
             </div>
           </div>
         </section>
 
-        {/* ==================== CONTACT SECTION ==================== */}
+        {/* ==================== 7. CONTACT ==================== */}
         <section className="contact-section section-pad" id="contact">
-          <div className="section-wrap contact-editorial-grid">
-            <div className="contact-dossier">
-              <div className="header-eyebrow-box">
-                <span className="section-num">07 // INITIATE</span>
-                <p className="eyebrow">HAVE A PROJECT IN MIND?</p>
-              </div>
-
-              <h2>Let's build<br /><em>what's next.</em></h2>
-
-              <p className="contact-dossier-lead">
-                Tell us what you are aiming to create. We'll start with a transparent conversation about your goals, timelines, and the ideal technical path forward.
+          <div className="section-wrap contact-grid">
+            <div className="contact-info">
+              <span className="section-eyebrow">CONTACT</span>
+              <h2 className="contact-headline">
+                Have an idea? Let's build it.
+              </h2>
+              <p className="contact-subtext">
+                Reach out directly via email, phone, or send us a message through the form.
               </p>
 
-              <div className="contact-touchpoints">
-                <a className="contact-channel-link" href="mailto:njtech.in@gmail.com">
-                  <div className="channel-icon-box">
-                    <Mail size={16} aria-hidden="true" />
-                  </div>
+              <div className="direct-channels">
+                <a className="direct-channel-card" href="mailto:njtech.in@gmail.com">
+                  <Mail size={18} aria-hidden="true" />
                   <div>
-                    <span className="channel-label">DIRECT EMAIL</span>
-                    <strong className="channel-value">njtech.in@gmail.com</strong>
+                    <small>EMAIL</small>
+                    <strong>njtech.in@gmail.com</strong>
                   </div>
-                  <ArrowUpRight size={15} className="channel-arrow" aria-hidden="true" />
                 </a>
 
-                <a className="contact-channel-link" href="tel:+918610870325">
-                  <div className="channel-icon-box">
-                    <Phone size={16} aria-hidden="true" />
-                  </div>
+                <a className="direct-channel-card" href="tel:+918610870325">
+                  <Phone size={18} aria-hidden="true" />
                   <div>
-                    <span className="channel-label">PHONE / WHATSAPP</span>
-                    <strong className="channel-value">+91 86108 70325</strong>
+                    <small>PHONE / WHATSAPP</small>
+                    <strong>+91 86108 70325</strong>
                   </div>
-                  <ArrowUpRight size={15} className="channel-arrow" aria-hidden="true" />
                 </a>
-              </div>
-
-              <div className="contact-studio-note">
-                <span className="note-status-dot" aria-hidden="true" />
-                <span>DIRECT FOUNDER RESPONSE WITHIN 24 HOURS</span>
               </div>
             </div>
 
-            <div className="contact-form-card">
-              <div className="form-card-top">
-                <span>PROJECT ENQUIRY DOSSIER</span>
-                <Sparkles size={16} className="form-sparkle" aria-hidden="true" />
-              </div>
-
+            <div className="contact-form-box">
               <form className="contact-form" onSubmit={submit}>
-                <label htmlFor="contact-name">
-                  Your name
+                <div className="form-group">
+                  <label htmlFor="name">Your Name</label>
                   <input
-                    id="contact-name"
+                    id="name"
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="How should we address you?"
+                    placeholder="Enter your name"
                   />
-                </label>
+                </div>
 
-                <label htmlFor="contact-email">
-                  Email address
+                <div className="form-group">
+                  <label htmlFor="email">Email Address</label>
                   <input
-                    id="contact-email"
+                    id="email"
                     required
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="you@company.com"
                   />
-                </label>
+                </div>
 
-                <label htmlFor="contact-service">
-                  What do you need?
+                <div className="form-group">
+                  <label htmlFor="service">Service Needed</label>
                   <select
-                    id="contact-service"
+                    id="service"
                     value={form.service}
                     onChange={(e) => setForm({ ...form, service: e.target.value })}
                   >
-                    <option value="Website or e-commerce">Website or e-commerce</option>
-                    <option value="WhatsApp checkout">WhatsApp checkout</option>
-                    <option value="Digital identity & automation">Digital identity & automation</option>
-                    <option value="Custom software">Custom software</option>
-                    <option value="Something else">Something else</option>
+                    <option value="Website Development">Website Development</option>
+                    <option value="E-commerce Solutions">E-commerce Solutions</option>
+                    <option value="Custom Software">Custom Software</option>
+                    <option value="Digital Automation">Digital Automation</option>
+                    <option value="Other">Other</option>
                   </select>
-                </label>
+                </div>
 
-                <label htmlFor="contact-message">
-                  Tell us a little about your project
+                <div className="form-group">
+                  <label htmlFor="message">Project Details</label>
                   <textarea
-                    id="contact-message"
+                    id="message"
                     required
                     rows={3}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="Describe your idea, timeline, or current technical bottleneck…"
+                    placeholder="Briefly describe what you would like to build…"
                   />
-                </label>
+                </div>
 
-                <button className="button button-gold form-submit-btn" type="submit">
-                  <span>Send Project Enquiry</span>
+                <button className="btn btn-gold form-btn" type="submit">
+                  <span>Send Message</span>
                   <ArrowRight size={16} aria-hidden="true" />
                 </button>
 
                 {sent && (
-                  <p className="form-note form-note-success" role="status" aria-live="polite">
-                    Your email application should open with your enquiry pre-populated. Review and send it to submit to NJEX.
+                  <p className="form-status-msg" role="status">
+                    Your email app has been opened with your message ready to send!
                   </p>
                 )}
-                <p className="form-note">
-                  This form directly prepares your email inquiry. No personal data is stored on third-party tracking databases.
-                </p>
               </form>
             </div>
           </div>
         </section>
       </main>
 
-      {/* ==================== SUBSTANTIAL MULTI-COLUMN FOOTER ==================== */}
-      <footer className="footer">
-        <div className="footer-top-glow" aria-hidden="true" />
-        <div className="section-wrap footer-inner">
-          <div className="footer-grid">
-            {/* Column 1: Studio Information */}
-            <div className="footer-col footer-col-company">
-              <a className="footer-brand" href="#home" onClick={closeMenu} aria-label="NJEX studio home">
-                <span className="brand-mark">NJ</span>
-                <span className="brand-copy">
-                  <strong>NJEX</strong>
-                  <small>SOFTWARE & DIGITAL SOLUTIONS</small>
-                </span>
-              </a>
-              <p className="footer-tagline-text">Software & Digital Solutions</p>
-              <p className="footer-company-desc">
-                NJEX partners with forward-thinking enterprises to design, architect, and engineer dependable web platforms, smart commerce solutions, and custom software systems.
-              </p>
-              <div className="footer-direct-contact">
-                <a className="footer-contact-link" href="mailto:njtech.in@gmail.com" aria-label="Send email to NJEX">
-                  <Mail size={15} aria-hidden="true" />
-                  <span>njtech.in@gmail.com</span>
-                </a>
-              </div>
-            </div>
+      {/* ==================== 8. COMPACT FOOTER ==================== */}
+      <footer className="footer-compact">
+        <div className="section-wrap footer-compact-inner">
+          <div className="footer-top-row">
+            <a className="footer-brand" href="#home" onClick={closeMenu} aria-label="NJEX home">
+              <span className="brand-mark">NJ</span>
+              <span className="brand-text">
+                <strong>NJEX</strong>
+                <small>SOFTWARE & DIGITAL SOLUTIONS</small>
+              </span>
+            </a>
 
-            {/* Column 2: Quick Links */}
-            <div className="footer-col footer-col-links">
-              <h3 className="footer-col-title">Quick Links</h3>
-              <ul className="footer-link-list">
-                {navigationLinks.map((item) => (
-                  <li key={item.number}>
-                    <a href={item.href} onClick={closeMenu}>
-                      <span className="link-bullet" aria-hidden="true">―</span> {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 3: Our Services */}
-            <div className="footer-col footer-col-services">
-              <h3 className="footer-col-title">Our Services</h3>
-              <ul className="footer-link-list">
-                {footerServices.map((serviceName) => (
-                  <li key={serviceName}>
-                    <a href="#services" onClick={closeMenu}>
-                      <span className="link-bullet" aria-hidden="true">―</span> {serviceName}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 4: Contact Information */}
-            <div className="footer-col footer-col-contact">
-              <h3 className="footer-col-title">Contact Information</h3>
-              <p className="footer-enquiry-msg">
-                Have an upcoming project or idea? We’re ready to discuss how we can build it together with precision.
-              </p>
-              <div className="footer-contact-details">
-                <a className="footer-contact-link" href="mailto:njtech.in@gmail.com">
-                  <Mail size={15} aria-hidden="true" />
-                  <span>njtech.in@gmail.com</span>
-                </a>
-                <a className="footer-contact-link" href="tel:+918610870325">
-                  <Phone size={15} aria-hidden="true" />
-                  <span>+91 86108 70325</span>
-                </a>
-              </div>
-              <div className="footer-cta-wrap">
-                <a className="button button-gold footer-cta-btn" href="#contact" onClick={closeMenu}>
-                  Start a Project <ArrowRight size={15} aria-hidden="true" />
-                </a>
-              </div>
+            <div className="footer-contacts">
+              <a href="mailto:njtech.in@gmail.com">njtech.in@gmail.com</a>
+              <span className="footer-sep">·</span>
+              <a href="tel:+918610870325">+91 86108 70325</a>
             </div>
           </div>
 
-          {/* Bottom Footer Bar */}
-          <div className="footer-bottom-bar">
-            <span className="footer-copy-text">
+          <div className="footer-nav-row">
+            <nav className="footer-nav-links" aria-label="Footer links">
+              {navigationLinks.map((item) => (
+                <a href={item.href} key={item.href} onClick={closeMenu}>
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          <div className="footer-bottom-row">
+            <span className="footer-copyright">
               © {currentYear} NJEX. All rights reserved.
             </span>
-            <span className="footer-philosophy">
-              Strategy · Design · Development
-            </span>
-            <a className="footer-back-to-top" href="#home" onClick={scrollToTop} aria-label="Back to top of page">
+            <a className="footer-top-link" href="#home" onClick={scrollToTop}>
               Back to Top <ArrowUp size={14} aria-hidden="true" />
             </a>
           </div>
@@ -1005,4 +502,8 @@ function App() {
   );
 }
 
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);
+createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
