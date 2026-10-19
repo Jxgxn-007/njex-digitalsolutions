@@ -1381,6 +1381,200 @@ textarea:focus:not(:focus-visible) {
   margin: 0;
 }
 
+/* ==================== MISSION & VISION SECTION ==================== */
+.mission-vision-section {
+  background: #09101c;
+  border-top: 1px solid var(--line);
+  position: relative;
+  scroll-margin-top: 80px;
+}
+
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  align-items: stretch;
+  gap: 24px;
+  position: relative;
+}
+
+.mv-card {
+  position: relative;
+  background: rgba(11, 20, 36, 0.75);
+  border: 1px solid rgba(215, 179, 107, 0.2);
+  background-image: radial-gradient(rgba(215, 179, 107, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border-radius: 4px;
+  padding: 40px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+}
+
+.mv-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(215, 179, 107, 0.42);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45), 0 0 28px rgba(215, 179, 107, 0.08);
+}
+
+.mv-card-ambient {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(215, 179, 107, 0.09) 0%, transparent 70%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mv-card:hover .mv-card-ambient {
+  opacity: 1.5;
+}
+
+.mv-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.mv-icon-box {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(215, 179, 107, 0.3);
+  background: rgba(7, 13, 24, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.mv-card:hover .mv-icon-box {
+  border-color: var(--gold);
+  transform: scale(1.06);
+}
+
+.mv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #8c98aa;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.mv-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(215, 179, 107, 0.6);
+}
+
+.mv-card-content {
+  flex: 1;
+}
+
+.mv-subtitle {
+  display: block;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.mv-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 2.4vw, 34px);
+  color: #f7f2e8;
+  margin: 0 0 18px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.mv-text {
+  font-size: clamp(14px, 1.05vw, 15px);
+  line-height: 1.85;
+  color: #a7b4c6;
+  margin: 0 0 28px;
+}
+
+.mv-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(215, 179, 107, 0.12);
+  padding-top: 18px;
+}
+
+.mv-footer-tag {
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  color: #7b889b;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.mv-footer-num {
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Subtle Connecting Line / Shared Visual Element */
+.mv-connector-bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 48px;
+}
+
+.mv-connector-line {
+  flex: 1;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(215, 179, 107, 0.35), transparent);
+}
+
+.mv-connector-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0;
+}
+
+.mv-node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(215, 179, 107, 0.7);
+  border: 1.5px solid #070d18;
+}
+
+.mv-node-text {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #8c7d5c;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-weight: 600;
+}
+
 /* ==================== TEAM SECTION ==================== */
 .team-section {
   background: #070d18;
@@ -2092,6 +2286,15 @@ textarea:focus:not(:focus-visible) {
     gap: 48px;
   }
 
+  .mission-vision-grid {
+    grid-template-columns: 1fr 36px 1fr;
+    gap: 18px;
+  }
+
+  .mv-card {
+    padding: 32px 26px 24px;
+  }
+
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
@@ -2763,6 +2966,62 @@ textarea:focus:not(:focus-visible) {
     line-height: 1.55;
   }
 
+  /* Mission & Vision Section Mobile */
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mv-connector-bridge {
+    flex-direction: row;
+    width: 100%;
+    height: 32px;
+    gap: 14px;
+  }
+
+  .mv-connector-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(215, 179, 107, 0.35), transparent);
+  }
+
+  .mv-connector-node {
+    flex-direction: row;
+    padding: 0;
+    gap: 8px;
+  }
+
+  .mv-node-text {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .mv-card {
+    padding: 26px 20px 22px;
+  }
+
+  .mv-card-top {
+    margin-bottom: 20px;
+  }
+
+  .mv-icon-box {
+    width: 46px;
+    height: 46px;
+  }
+
+  .mv-heading {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+
+  .mv-text {
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+  }
+
   /* Team Section */
   .team-grid {
     grid-template-columns: 1fr;
@@ -3039,6 +3298,19 @@ textarea:focus:not(:focus-visible) {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .mv-card {
+    padding: 22px 14px 18px;
+  }
+
+  .mv-heading {
+    font-size: 21px;
+  }
+
+  .mv-text {
+    font-size: 13px;
+    line-height: 1.6;
   }
 }
 

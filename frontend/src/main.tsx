@@ -8,6 +8,7 @@ import {
   Bot,
   Check,
   ExternalLink,
+  Eye,
   Globe2,
   Linkedin,
   Mail,
@@ -15,6 +16,7 @@ import {
   MessageCircle,
   Phone,
   Sparkles,
+  Target,
   Workflow,
   X,
 } from 'lucide-react';
@@ -53,8 +55,9 @@ const navigationLinks = [
   { number: '02', label: 'What We Do', href: '#services', tag: 'Our capabilities' },
   { number: '03', label: 'Selected Work', href: '#work', tag: 'Gokul Traders' },
   { number: '04', label: 'About NJEX', href: '#about', tag: 'Studio philosophy' },
-  { number: '05', label: 'Our Team', href: '#team', tag: 'The minds behind' },
-  { number: '06', label: 'Contact', href: '#contact', tag: 'Initiate project' },
+  { number: '05', label: 'Mission & Vision', href: '#mission-vision', tag: 'Purpose & horizon' },
+  { number: '06', label: 'Our Team', href: '#team', tag: 'The minds behind' },
+  { number: '07', label: 'Contact', href: '#contact', tag: 'Initiate project' },
 ];
 
 const footerServices = [
@@ -675,12 +678,97 @@ function App() {
           </div>
         </section>
 
+        {/* ==================== MISSION & VISION SECTION ==================== */}
+        <section className="mission-vision-section section-pad" id="mission-vision">
+          <div className="section-wrap">
+            <div className="section-header-editorial">
+              <div className="header-eyebrow-box">
+                <span className="section-num">05 // PURPOSE & HORIZON</span>
+                <p className="eyebrow">GUIDING PRINCIPLES</p>
+              </div>
+              <div className="header-title-split">
+                <h2>Where we stand.<br /><em>Where we are heading.</em></h2>
+                <p className="heading-summary">
+                  Clear intention behind today's execution.<br />
+                  A steadfast commitment to tomorrow's digital landscape.
+                </p>
+              </div>
+            </div>
+
+            <div className="mission-vision-grid">
+              {/* Mission Card */}
+              <article className="mv-card mv-card-mission">
+                <div className="mv-card-ambient" aria-hidden="true" />
+                <div className="mv-card-top">
+                  <div className="mv-icon-box" aria-label="Mission Target Icon">
+                    <Target size={24} strokeWidth={1.4} aria-hidden="true" />
+                  </div>
+                  <div className="mv-badge">
+                    <span className="mv-dot" aria-hidden="true" />
+                    <span>FOUNDATIONAL CALLING</span>
+                  </div>
+                </div>
+
+                <div className="mv-card-content">
+                  <span className="mv-subtitle">01 / COMMITMENT</span>
+                  <h3 className="mv-heading">Our Mission</h3>
+                  <p className="mv-text">
+                    Our mission is to transform ideas into meaningful digital solutions by combining creativity, technology, and practical problem-solving. We aim to help businesses build a stronger digital presence, improve their operations, and turn their goals into real-world results through reliable, user-focused software and digital experiences.
+                  </p>
+                </div>
+
+                <div className="mv-card-footer">
+                  <span className="mv-footer-tag">EXECUTION WITH INTENTION</span>
+                  <span className="mv-footer-num">01</span>
+                </div>
+              </article>
+
+              {/* Central Visual Connector (Purpose to Direction) */}
+              <div className="mv-connector-bridge" aria-hidden="true">
+                <div className="mv-connector-line" />
+                <div className="mv-connector-node">
+                  <span className="mv-node-dot" />
+                  <span className="mv-node-text">ALIGNMENT</span>
+                </div>
+                <div className="mv-connector-line" />
+              </div>
+
+              {/* Vision Card */}
+              <article className="mv-card mv-card-vision">
+                <div className="mv-card-ambient" aria-hidden="true" />
+                <div className="mv-card-top">
+                  <div className="mv-icon-box" aria-label="Vision Eye Icon">
+                    <Eye size={24} strokeWidth={1.4} aria-hidden="true" />
+                  </div>
+                  <div className="mv-badge">
+                    <span className="mv-dot" aria-hidden="true" />
+                    <span>LONG-TERM HORIZON</span>
+                  </div>
+                </div>
+
+                <div className="mv-card-content">
+                  <span className="mv-subtitle">02 / ASPIRATION</span>
+                  <h3 className="mv-heading">Our Vision</h3>
+                  <p className="mv-text">
+                    Our vision is to become a trusted technology partner for businesses of all sizes, creating innovative digital experiences that simplify everyday challenges and open new opportunities for growth. We aspire to build technology that is accessible, impactful, and ready for the future.
+                  </p>
+                </div>
+
+                <div className="mv-card-footer">
+                  <span className="mv-footer-tag">READY FOR THE FUTURE</span>
+                  <span className="mv-footer-num">02</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
         {/* ==================== TEAM SECTION ==================== */}
         <section className="team-section section-pad" id="team">
           <div className="section-wrap">
             <div className="section-header-editorial">
               <div className="header-eyebrow-box">
-                <span className="section-num">05 // OUR TEAM</span>
+                <span className="section-num">06 // OUR TEAM</span>
                 <p className="eyebrow">THE PEOPLE BEHIND NJEX</p>
               </div>
               <div className="header-title-split">
@@ -705,7 +793,7 @@ function App() {
           <div className="section-wrap contact-editorial-grid">
             <div className="contact-dossier">
               <div className="header-eyebrow-box">
-                <span className="section-num">06 // INITIATE</span>
+                <span className="section-num">07 // INITIATE</span>
                 <p className="eyebrow">HAVE A PROJECT IN MIND?</p>
               </div>
 
