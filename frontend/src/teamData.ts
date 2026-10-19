@@ -33,6 +33,11 @@ export const teamMembers: TeamMember[] = [
     role: 'Product Design & User Experience',
     area: 'UI/UX Design & Creative Direction',
     photoUrl: member2Photo,
+    socials: {
+      portfolio: 'https://biswajithportfolio.netlify.app',
+      github: 'https://github.com/BiswajithPN',
+      linkedin: 'https://www.linkedin.com/in/biswajithpn',
+    },
   },
   {
     id: 'team-member-3',
