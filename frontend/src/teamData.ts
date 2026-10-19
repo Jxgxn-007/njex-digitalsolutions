@@ -1,6 +1,6 @@
 import member1Photo from './assets/team/member-1.jpg';
 import member2Photo from './assets/team/member-2.jpg';
-import member3Photo from './assets/team/member-3.jpg';
+import member3Photo from './assets/team/member-3.png';
 
 export interface TeamMember {
   id: string;
