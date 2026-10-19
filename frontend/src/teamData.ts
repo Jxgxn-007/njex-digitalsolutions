@@ -44,5 +44,8 @@ export const teamMembers: TeamMember[] = [
     role: 'Digital Solutions Specialist',
     area: 'Workflow Automation & Delivery',
     photoUrl: member3Photo,
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/sundara-moorthy-162978322/',
+    },
   },
 ];
