@@ -50,8 +50,8 @@ const services = [
 
 const navigationLinks = [
   { number: '01', label: 'Home', href: '#home', tag: 'Top of page' },
-  { number: '02', label: 'Services', href: '#services', tag: 'What we engineer' },
-  { number: '03', label: 'Selected Work', href: '#work', tag: 'Case studies' },
+  { number: '02', label: 'What We Do', href: '#services', tag: 'Our capabilities' },
+  { number: '03', label: 'Selected Work', href: '#work', tag: 'Gokul Traders' },
   { number: '04', label: 'About NJEX', href: '#about', tag: 'Studio philosophy' },
   { number: '05', label: 'Our Team', href: '#team', tag: 'The minds behind' },
   { number: '06', label: 'Contact', href: '#contact', tag: 'Initiate project' },
@@ -324,18 +324,18 @@ function App() {
           <div className="section-wrap hero-content-grid">
             <div className="hero-editorial">
               <div className="hero-kicker">
-                <span className="kicker-rule" aria-hidden="true" />
-                <span>INDEPENDENT DIGITAL & SOFTWARE STUDIO</span>
+                <span className="hero-kicker-dot" aria-hidden="true" />
+                <span className="hero-kicker-text">SOFTWARE · DESIGN · DIGITAL SOLUTIONS</span>
+                <span className="hero-kicker-line" aria-hidden="true" />
               </div>
 
               <h1 className="hero-headline">
-                Ideas deserve<br className="hero-br-desk" />
-                <em>better digital</em><br className="hero-br-desk" />
-                experiences.
+                We turn ideas into<br className="hero-br-desk" />
+                <em>digital experiences.</em>
               </h1>
 
               <p className="hero-summary">
-                NJEX partners with forward-thinking businesses to engineer distinctive web applications, frictionless commerce storefronts, and custom software systems shaped around the way ambitious companies actually grow.
+                From powerful websites to thoughtful software solutions, NJEX helps businesses build, grow, and move forward with technology.
               </p>
 
               <div className="hero-actions-wrap">
@@ -351,39 +351,81 @@ function App() {
                 <div className="spec-item">
                   <span className="spec-dot" aria-hidden="true" />
                   <strong>STRATEGY</strong>
-                  <small>Clarity & Architecture</small>
+                  <small>Web & Commerce</small>
                 </div>
                 <div className="spec-item">
                   <span className="spec-dot" aria-hidden="true" />
                   <strong>CRAFT</strong>
-                  <small>Refined Aesthetics</small>
+                  <small>Editorial Systems</small>
                 </div>
                 <div className="spec-item">
                   <span className="spec-dot" aria-hidden="true" />
                   <strong>ENGINEERING</strong>
-                  <small>Reliable Codebases</small>
+                  <small>Custom Software</small>
                 </div>
               </div>
             </div>
 
-            {/* Asymmetric Geometric Art Installation */}
-            <div className="hero-monolith-art" aria-label="Abstract gold NJEX architectural sculpture">
-              <div className="monolith-orbit orbit-a" aria-hidden="true" />
-              <div className="monolith-orbit orbit-b" aria-hidden="true" />
-              <div className="monolith-axis axis-vert" aria-hidden="true" />
-              <div className="monolith-axis axis-horiz" aria-hidden="true" />
-              <div className="monolith-core" aria-hidden="true">
-                <div className="monolith-frame">
-                  <span className="monolith-letter letter-n">N</span>
-                  <span className="monolith-letter letter-j">J</span>
+            {/* NJEX Studio Focus & Disciplines Overview Panel */}
+            <div className="hero-overview-panel" aria-label="NJEX studio overview and core disciplines">
+              <div className="overview-panel-glass">
+                <div className="overview-panel-top">
+                  <div className="overview-status-indicator">
+                    <span className="pulse-dot" aria-hidden="true" />
+                    <span className="status-label">STUDIO DISCIPLINES</span>
+                  </div>
+                  <span className="overview-edition-tag">DIRECTORY // 2026</span>
                 </div>
-                <div className="monolith-cross-light" />
+
+                <div className="overview-disciplines-list">
+                  <div className="discipline-item">
+                    <div className="discipline-meta">
+                      <span className="discipline-num">01</span>
+                      <span className="discipline-tag">WEB APPLICATIONS</span>
+                    </div>
+                    <h4 className="discipline-title">Modern Web & Platforms</h4>
+                    <p className="discipline-desc">Responsive storefronts and digital platforms engineered for conversion.</p>
+                  </div>
+
+                  <div className="discipline-item">
+                    <div className="discipline-meta">
+                      <span className="discipline-num">02</span>
+                      <span className="discipline-tag">COMMERCE</span>
+                    </div>
+                    <h4 className="discipline-title">E-Commerce & WhatsApp Ordering</h4>
+                    <p className="discipline-desc">Frictionless product catalogs, booking forms, and direct messaging channels.</p>
+                  </div>
+
+                  <div className="discipline-item">
+                    <div className="discipline-meta">
+                      <span className="discipline-num">03</span>
+                      <span className="discipline-tag">BRAND IDENTITY</span>
+                    </div>
+                    <h4 className="discipline-title">Digital Identity & Systems</h4>
+                    <p className="discipline-desc">Cohesive design systems, refined typography, and purposeful user journeys.</p>
+                  </div>
+
+                  <div className="discipline-item">
+                    <div className="discipline-meta">
+                      <span className="discipline-num">04</span>
+                      <span className="discipline-tag">SOFTWARE</span>
+                    </div>
+                    <h4 className="discipline-title">Custom Software Solutions</h4>
+                    <p className="discipline-desc">Bespoke operational tools, portals, and data architectures built to scale.</p>
+                  </div>
+                </div>
+
+                <div className="overview-panel-bottom">
+                  <div className="overview-bottom-meta">
+                    <span className="bottom-meta-label">FEATURED DEPLOYMENT</span>
+                    <span className="bottom-meta-val">Gokul Traders // Online Platform</span>
+                  </div>
+                  <a href="#work" className="panel-explore-link">
+                    <span>View Project</span>
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </a>
+                </div>
               </div>
-              <div className="monolith-coordinates" aria-hidden="true">
-                <span>COORD // 13.0827° N · 80.2707° E</span>
-                <span>EDITION / 2026.01</span>
-              </div>
-              <div className="monolith-badge">ESTABLISHED WITH INTENTION</div>
             </div>
           </div>
 
@@ -395,8 +437,8 @@ function App() {
                 <strong className="ribbon-bold">GOKUL TRADERS // ECOMMERCE BOOKING</strong>
               </div>
               <div className="ribbon-col ribbon-center">
-                <span className="ribbon-dim">FOCUS</span>
-                <span className="ribbon-bold">PURPOSE · PRECISION · LONGEVITY</span>
+                <span className="ribbon-dim">CORE DISCIPLINES</span>
+                <span className="ribbon-bold">WEB · SOFTWARE · COMMERCE</span>
               </div>
               <a className="ribbon-col ribbon-right" href="#work">
                 <span>EXPLORE WORK</span>
@@ -406,21 +448,40 @@ function App() {
           </div>
         </section>
 
-        {/* ==================== EDITORIAL INTRO MANIFESTO ==================== */}
-        <section className="manifesto-band">
-          <div className="section-wrap manifesto-layout">
-            <div className="manifesto-aside">
-              <span className="section-num">01 // ESSENCE</span>
-              <p className="aside-title">THE DIGITAL PARADOX</p>
+        {/* ==================== WHAT WE DO / SERVICES SECTION ==================== */}
+        <section className="services-section section-pad" id="services">
+          <div className="section-wrap">
+            <div className="section-header-editorial">
+              <div className="header-eyebrow-box">
+                <span className="section-num">02 // WHAT WE DO</span>
+                <p className="eyebrow">OUR CORE SERVICES</p>
+              </div>
+              <div className="header-title-split">
+                <h2>Built around your<br /><em>next big move.</em></h2>
+                <p className="heading-summary">
+                  Clear thinking. Careful execution.<br />
+                  Digital tools tailored to how your business creates revenue.
+                </p>
+              </div>
             </div>
-            <div className="manifesto-main">
-              <h2>
-                Good technology should do more than work.<br />
-                <em>It should advance your business forward.</em>
-              </h2>
-              <p className="manifesto-lead">
-                Too much software is built generic, bloated, and disconnected from genuine customer needs. NJEX builds with restraint: thoughtful design systems, resilient codebases, and digital experiences that honor your brand’s reputation.
-              </p>
+
+            <div className="services-editorial-grid">
+              {services.map(({ icon: Icon, number, title, body }) => (
+                <article className="service-editorial-card" key={number}>
+                  <div className="service-card-top">
+                    <span className="service-card-num">{number}</span>
+                    <Icon size={24} strokeWidth={1.3} className="service-card-icon" aria-hidden="true" />
+                  </div>
+                  <h3 className="service-card-title">{title}</h3>
+                  <p className="service-card-body">{body}</p>
+                  <div className="service-card-footer">
+                    <a href="#contact" className="service-card-anchor" aria-label={`Enquire about ${title}`}>
+                      <span>Initiate project</span>
+                      <ArrowUpRight size={16} aria-hidden="true" />
+                    </a>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -430,7 +491,7 @@ function App() {
           <div className="section-wrap">
             <div className="section-header-editorial">
               <div className="header-eyebrow-box">
-                <span className="section-num">02 // SELECTED WORK</span>
+                <span className="section-num">03 // SELECTED WORK</span>
                 <p className="eyebrow">VERIFIED PROJECT CASE STUDY</p>
               </div>
               <div className="header-title-split">
@@ -530,40 +591,21 @@ function App() {
           </div>
         </section>
 
-        {/* ==================== SERVICES SECTION ==================== */}
-        <section className="services-section section-pad" id="services">
-          <div className="section-wrap">
-            <div className="section-header-editorial">
-              <div className="header-eyebrow-box">
-                <span className="section-num">03 // CAPABILITIES</span>
-                <p className="eyebrow">WHAT WE BRING TO THE TABLE</p>
-              </div>
-              <div className="header-title-split">
-                <h2>Built around your<br /><em>next big move.</em></h2>
-                <p className="heading-summary">
-                  Clear thinking. Careful execution.<br />
-                  Digital tools tailored to how your business creates revenue.
-                </p>
-              </div>
+        {/* ==================== EDITORIAL INTRO MANIFESTO ==================== */}
+        <section className="manifesto-band">
+          <div className="section-wrap manifesto-layout">
+            <div className="manifesto-aside">
+              <span className="section-num">PERSPECTIVE // ESSENCE</span>
+              <p className="aside-title">THE DIGITAL PARADOX</p>
             </div>
-
-            <div className="services-editorial-grid">
-              {services.map(({ icon: Icon, number, title, body }) => (
-                <article className="service-editorial-card" key={number}>
-                  <div className="service-card-top">
-                    <span className="service-card-num">{number}</span>
-                    <Icon size={24} strokeWidth={1.3} className="service-card-icon" aria-hidden="true" />
-                  </div>
-                  <h3 className="service-card-title">{title}</h3>
-                  <p className="service-card-body">{body}</p>
-                  <div className="service-card-footer">
-                    <a href="#contact" className="service-card-anchor" aria-label={`Enquire about ${title}`}>
-                      <span>Initiate project</span>
-                      <ArrowUpRight size={16} aria-hidden="true" />
-                    </a>
-                  </div>
-                </article>
-              ))}
+            <div className="manifesto-main">
+              <h2>
+                Good technology should do more than work.<br />
+                <em>It should advance your business forward.</em>
+              </h2>
+              <p className="manifesto-lead">
+                Too much software is built generic, bloated, and disconnected from genuine customer needs. NJEX builds with restraint: thoughtful design systems, resilient codebases, and digital experiences that honor your brand’s reputation.
+              </p>
             </div>
           </div>
         </section>
