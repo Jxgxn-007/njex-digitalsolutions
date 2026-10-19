@@ -176,13 +176,19 @@ function App() {
     };
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      document.body.classList.add('nav-overlay-active');
     } else {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.body.classList.remove('nav-overlay-active');
     }
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.body.classList.remove('nav-overlay-active');
     };
   }, [menuOpen]);
 
@@ -222,7 +228,7 @@ function App() {
           <span className="corner-brand-mark">NJ</span>
           <span className="corner-brand-info">
             <strong>NJEX</strong>
-            <small>SOFTWARE & DIGITAL SOLUTIONS</small>
+            <small className="corner-brand-sub">SOFTWARE & DIGITAL SOLUTIONS</small>
           </span>
         </a>
 
@@ -323,8 +329,8 @@ function App() {
               </div>
 
               <h1 className="hero-headline">
-                Ideas deserve<br />
-                <em>better digital</em><br />
+                Ideas deserve<br className="hero-br-desk" />
+                <em>better digital</em><br className="hero-br-desk" />
                 experiences.
               </h1>
 
