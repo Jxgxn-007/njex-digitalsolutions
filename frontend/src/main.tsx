@@ -301,7 +301,7 @@ function App() {
         </section>
 
         {/* ==================== 4. ABOUT NJEX ==================== */}
-        <section className="about-section section-pad" id="about">
+        <section className="about-section" id="about">
           <div className="section-wrap">
             <div className="about-container">
               <span className="section-eyebrow">ABOUT NJEX</span>
