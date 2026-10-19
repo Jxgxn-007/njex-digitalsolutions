@@ -1,10 +1,14 @@
+import member1Photo from './assets/team/member-1.jpg';
+import member2Photo from './assets/team/member-2.jpg';
+import member3Photo from './assets/team/member-3.jpg';
+
 export interface TeamMember {
   id: string;
   name: string;
   designation: string;
   responsibility: string;
   bio: string;
-  photoUrl?: string; // Provide an image path (e.g., '/team/member1.jpg') or leave undefined for the stylized placeholder
+  photoUrl?: string; // Provide an image path or imported asset
   avatarPlaceholder: {
     initials: string;
     badgeText: string;
@@ -19,11 +23,9 @@ export interface TeamMember {
 /**
  * NJEX COMPANY TEAM DATA
  * -------------------------------------------------------------
- * To update member details:
- * 1. Replace placeholder names ("Team Member 1", etc.) with real names.
- * 2. Update official designations, areas of responsibility, and bios.
- * 3. Add an image link in `photoUrl` or leave empty to keep the premium monogram avatar.
- * 4. Add or remove member objects as your team evolves.
+ * 1. Team Member 1: Leadership & Technical Architecture (Photo 1)
+ * 2. Team Member 2: Product Design & User Experience (Photo 2)
+ * 3. Team Member 3: Digital Solutions & Delivery Specialist (Photo 3)
  */
 export const teamMembers: TeamMember[] = [
   {
@@ -32,6 +34,7 @@ export const teamMembers: TeamMember[] = [
     designation: 'Leadership & Technical Architecture',
     responsibility: 'System Architecture & Engineering Strategy',
     bio: 'Directs the engineering vision and software design at NJEX, building resilient and scalable digital foundations for client platforms.',
+    photoUrl: member1Photo,
     avatarPlaceholder: {
       initials: '01',
       badgeText: 'LEADERSHIP',
@@ -47,6 +50,7 @@ export const teamMembers: TeamMember[] = [
     designation: 'Product Design & User Experience',
     responsibility: 'UI/UX Design Systems & Creative Direction',
     bio: 'Crafts intuitive, visually engaging digital experiences that balance user needs with refined aesthetic precision and branding consistency.',
+    photoUrl: member2Photo,
     avatarPlaceholder: {
       initials: '02',
       badgeText: 'DESIGN',
@@ -62,6 +66,7 @@ export const teamMembers: TeamMember[] = [
     designation: 'Digital Solutions & Delivery Specialist',
     responsibility: 'Custom Integrations & Workflow Automation',
     bio: 'Coordinates practical digital implementations, business automation workflows, and customer journeys from initial concept to launch.',
+    photoUrl: member3Photo,
     avatarPlaceholder: {
       initials: '03',
       badgeText: 'SOLUTIONS',
