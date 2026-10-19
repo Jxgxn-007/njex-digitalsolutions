@@ -7,7 +7,10 @@ import {
   CheckCircle2,
   Code2,
   Eye,
+  Github,
+  Globe,
   Globe2,
+  Linkedin,
   Mail,
   Menu,
   Phone,
@@ -86,6 +89,53 @@ function TeamCard({ member }: { member: TeamMember }) {
       <div className="team-content">
         <h3 className="team-role">{member.role}</h3>
         <p className="team-area">{member.area}</p>
+
+        {member.socials && (
+          <div className="team-social-links" aria-label="Social and portfolio links">
+            {member.socials.portfolio && (
+              <a
+                href={member.socials.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="team-social-link"
+                title="View Portfolio"
+                aria-label={`${member.role} Portfolio`}
+              >
+                <Globe size={13} aria-hidden="true" />
+                <span>Portfolio</span>
+                <ArrowUpRight size={12} className="social-arrow" aria-hidden="true" />
+              </a>
+            )}
+            {member.socials.github && (
+              <a
+                href={member.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="team-social-link"
+                title="GitHub Profile"
+                aria-label={`${member.role} GitHub`}
+              >
+                <Github size={13} aria-hidden="true" />
+                <span>GitHub</span>
+                <ArrowUpRight size={12} className="social-arrow" aria-hidden="true" />
+              </a>
+            )}
+            {member.socials.linkedin && (
+              <a
+                href={member.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="team-social-link"
+                title="LinkedIn Profile"
+                aria-label={`${member.role} LinkedIn`}
+              >
+                <Linkedin size={13} aria-hidden="true" />
+                <span>LinkedIn</span>
+                <ArrowUpRight size={12} className="social-arrow" aria-hidden="true" />
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );
