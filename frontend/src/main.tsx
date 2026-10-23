@@ -81,7 +81,7 @@ function TeamCard({ member }: { member: TeamMember }) {
           />
         ) : (
           <div className="team-avatar-fallback">
-            <span>NJEX</span>
+            <span>NJIX</span>
           </div>
         )}
       </div>
@@ -188,7 +188,7 @@ function App() {
 
     if (!cleanName || !cleanEmail || !cleanMessage) return;
 
-    const subject = encodeURIComponent(`NJEX Enquiry — ${form.service}`);
+    const subject = encodeURIComponent(`NJIX Enquiry — ${form.service}`);
     const body = encodeURIComponent(
       `Name: ${cleanName}\nEmail: ${cleanEmail}\nService: ${form.service}\n\nProject details:\n${cleanMessage}`
     );
@@ -202,10 +202,10 @@ function App() {
     <div className="site-shell">
       {/* ==================== COMPACT FLOATING NAVIGATION ==================== */}
       <header className="floating-nav-bar" aria-label="Site header">
-        <a className="brand-logo-link" href="#home" onClick={closeMenu} aria-label="NJEX home">
+        <a className="brand-logo-link" href="#home" onClick={closeMenu} aria-label="NJIX home">
           <span className="brand-mark">NJ</span>
           <span className="brand-text">
-            <strong>NJEX</strong>
+            <strong>NJIX</strong>
             <small>DIGITAL SOLUTIONS</small>
           </span>
         </a>
@@ -305,7 +305,7 @@ function App() {
                     <span className="showcase-pulse" />
                     <span>SYSTEMS ACTIVE</span>
                   </div>
-                  <span className="showcase-edition">NJEX // 2026</span>
+                  <span className="showcase-edition">NJIX // 2026</span>
                 </div>
 
                 <div className="showcase-panel-body">
@@ -465,11 +465,11 @@ function App() {
           </div>
         </section>
 
-        {/* ==================== 4. ABOUT NJEX ==================== */}
+        {/* ==================== 4. ABOUT NJIX ==================== */}
         <section className="about-section section-pad" id="about">
           <div className="section-wrap about-grid">
             <div className="about-heading-col">
-              <span className="section-eyebrow">ABOUT NJEX</span>
+              <span className="section-eyebrow">ABOUT NJIX</span>
               <h2 className="about-title">
                 Crafting digital solutions with purpose, precision, and longevity.
               </h2>
@@ -477,7 +477,7 @@ function App() {
 
             <div className="about-content-col">
               <p className="about-lead">
-                NJEX is a modern digital solutions studio partnering with businesses to build high-impact web applications, e-commerce platforms, and custom software systems.
+                NJIX is a modern digital solutions studio partnering with businesses to build high-impact web applications, e-commerce platforms, and custom software systems.
               </p>
               <p className="about-body">
                 We bridge creative user experience design with dependable technical architecture. Every solution we build is engineered around clear operational goals, intuitive user workflows, and long-term scalability.
@@ -554,7 +554,7 @@ function App() {
           <div className="section-wrap">
             <div className="section-header">
               <span className="section-eyebrow">OUR TEAM</span>
-              <h2 className="section-title">The People Behind NJEX</h2>
+              <h2 className="section-title">The People Behind NJIX</h2>
               <p className="section-subtitle">
                 Dedicated professionals passionate about design, systems, and digital execution.
               </p>
@@ -685,15 +685,15 @@ function App() {
           <div className="footer-grid">
             {/* Column 1: Studio Identity */}
             <div className="footer-col footer-col-brand">
-              <a className="footer-brand" href="#home" onClick={closeMenu} aria-label="NJEX home">
+              <a className="footer-brand" href="#home" onClick={closeMenu} aria-label="NJIX home">
                 <span className="brand-mark">NJ</span>
                 <span className="brand-text">
-                  <strong>NJEX</strong>
+                  <strong>NJIX</strong>
                   <small>DIGITAL SOLUTIONS</small>
                 </span>
               </a>
               <p className="footer-desc">
-                NJEX designs and engineers bespoke web applications, high-converting e-commerce platforms, and tailored software solutions for ambitious organizations.
+                NJIX designs and engineers bespoke web applications, high-converting e-commerce platforms, and tailored software solutions for ambitious organizations.
               </p>
               <div className="footer-direct-link">
                 <a href="mailto:njtech.in@gmail.com">njtech.in@gmail.com</a>
@@ -746,7 +746,7 @@ function App() {
 
           <div className="footer-bottom-bar">
             <span className="footer-copy">
-              © {currentYear} NJEX Software & Digital Solutions. All rights reserved.
+              © {currentYear} NJIX Software & Digital Solutions. All rights reserved.
             </span>
             <span className="footer-tagline">
               Design · Engineering · Longevity

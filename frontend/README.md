@@ -1,6 +1,6 @@
-# NJEX — Software & Digital Solutions
+# NJIX — Software & Digital Solutions
 
-A responsive React + TypeScript + Vite company portfolio for NJEX, using the supplied navy-and-gold brand direction.
+A responsive React + TypeScript + Vite company portfolio for NJIX, using the supplied navy-and-gold brand direction.
 
 ## Features
 - Responsive single-page company website

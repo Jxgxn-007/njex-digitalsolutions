@@ -1,6 +1,6 @@
-# NJEX — Software & Digital Solutions
+# NJIX — Software & Digital Solutions
 
-Company portfolio website for NJEX.
+Company portfolio website for NJIX.
 
 ## Project Structure
 
